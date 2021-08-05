@@ -2,13 +2,13 @@ import React from "react";
 import Post from "../Post/Post";
 import "./Posts.css";
 
-const Posts = () => {
+const Posts = ({ posts }) => {
   return (
     <div className="Posts">
-      Posts
-      <Post />
-      <Post />
-      <Post />
+      <h2>Posts</h2>
+      {posts.map((post) => (
+        <Post post={post} key={post._id} />
+      ))}
     </div>
   );
 };
