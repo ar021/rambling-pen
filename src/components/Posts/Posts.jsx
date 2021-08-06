@@ -4,8 +4,7 @@ import "./Posts.css";
 
 const Posts = ({ posts }) => {
   return (
-    <div className="Posts">
-      <h2>Posts</h2>
+    <div className="posts">
       {posts.map((post) => (
         <Post post={post} key={post._id} />
       ))}
