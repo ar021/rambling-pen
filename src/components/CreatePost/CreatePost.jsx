@@ -33,7 +33,7 @@ class CreatePost extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="createPostForm">
         <div className="formTittle">
           <span>Write a Blog</span>
         </div>
@@ -96,13 +96,23 @@ class CreatePost extends Component {
               />
             </div>
           </div>
-          <button
+          {/* <button
             type="submit"
             className="btn"
             disabled={this.state.invalidForm}
           >
             Create Post
-          </button>
+          </button> */}
+          <div className="frame">
+            <button
+              type="submit"
+              className="btn"
+              disabled={this.state.invalidForm}
+              class="custom-btn btn-16"
+            >
+              Create
+            </button>
+          </div>
         </form>
       </div>
     );

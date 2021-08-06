@@ -10,7 +10,13 @@ async function create(req, res) {
   res.status(200).json(post);
 }
 
+async function show(req, res) {
+  const post = await Post.findById(req.params.id);
+  res.status(200).json(post);
+}
+
 module.exports = {
   index,
   create,
+  show,
 };

@@ -48,7 +48,11 @@ class App extends Component {
               path="/"
               render={() => <HomePage posts={posts} />}
             ></Route>
-            <Route exact path="/details" render={() => <ShowPage />}></Route>
+            <Route
+              exact
+              path="/details"
+              render={(location) => <ShowPage location={location} />}
+            ></Route>
             <Route
               exact
               path="/add"
