@@ -8,7 +8,14 @@ const Post = ({ post, key }) => {
       {/* <div className="">{tittle}</div>
       <div className="">{description}</div>
       <div className="">{category}</div> */}
-      <img className="postImg card-img-top " src="" alt="" />
+      <img
+        className="postImg card-img-top "
+        src={
+          post.image ||
+          "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+        }
+        alt=""
+      />
       <div className="postInfo card-body">
         <div className="postCats">
           <span className="postCat">{post.category}</span>

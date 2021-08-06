@@ -4,9 +4,9 @@ var postsCtrl = require("../../controllers/api/posts");
 
 /* GET /api/posts */
 router.get("/", postsCtrl.index);
-router.get("/:id", postsCtrl.show);
+// router.get("/:id", postsCtrl.show);
 router.post("/", postsCtrl.create);
-// router.delete("/:id", postsCtrl.delete);
+router.delete("/:id", postsCtrl.delete);
 // router.put("/:id", postsCtrl.update);
 
 module.exports = router;

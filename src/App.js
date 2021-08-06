@@ -3,10 +3,6 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import postService from "./services/postService";
 import NavBar from "./components/NavBar/NavBar";
-import Posts from "./components/Posts/Posts";
-import ProfileSection from "./components/ProfileSection/ProfileSection";
-import ShowPost from "./components/ShowPost/ShowPost";
-import TittleBar from "./components/TittleBar/TittleBar";
 import CreatePost from "./components/CreatePost/CreatePost";
 import HomePage from "./pages/HomePage/HomePage";
 import ShowPage from "./pages/ShowPage/ShowPage";
@@ -26,6 +22,17 @@ class App extends Component {
         posts: [...state.posts, newPost],
       })
       // Using cb to wait for state to update before rerouting
+      // () => this.props.history.push("/")
+    );
+  };
+
+  handleDeletePost = async (id) => {
+    await postService.deleteOne(id);
+    this.setState(
+      (state) => ({
+        // Yay, filter returns a NEW array
+        posts: state.posts.filter((p) => p._id !== id),
+      })
       // () => this.props.history.push("/")
     );
   };
@@ -51,7 +58,12 @@ class App extends Component {
             <Route
               exact
               path="/details"
-              render={(location) => <ShowPage location={location} />}
+              render={(location) => (
+                <ShowPage
+                  location={location}
+                  handleDeletePost={this.handleDeletePost}
+                />
+              )}
             ></Route>
             <Route
               exact

@@ -11,8 +11,14 @@ function create(post) {
     body: JSON.stringify(post),
   }).then((res) => res.json());
 }
+function deleteOne(id) {
+  return fetch(`${BASE_URL}/${id}`, {
+    method: "DELETE",
+  }).then((res) => res.json());
+}
 
 export default {
   getAll,
   create,
+  deleteOne,
 };
