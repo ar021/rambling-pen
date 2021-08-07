@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import CreatePost from "./components/CreatePost/CreatePost";
 import HomePage from "./pages/HomePage/HomePage";
 import ShowPage from "./pages/ShowPage/ShowPage";
+import EditPostPage from "./pages/EditPostPage/EditPostPage";
 
 class App extends Component {
   constructor(props) {
@@ -35,6 +36,14 @@ class App extends Component {
       })
       // () => this.props.history.push("/")
     );
+  };
+
+  handleUpdatePost = async (updatedPostData) => {
+    const updatedPost = await postService.update(updatedPostData);
+    const newPostsArray = this.state.posts.map((p) =>
+      p._id === updatedPost._id ? updatedPost : p
+    );
+    this.setState({ posts: newPostsArray });
   };
 
   async componentDidMount() {
@@ -71,6 +80,17 @@ class App extends Component {
               render={({ history }) => (
                 <CreatePost
                   handleAddPost={this.handleAddPost}
+                  history={history}
+                />
+              )}
+            ></Route>
+            <Route
+              exact
+              path="/edit"
+              render={({ location, history }) => (
+                <EditPostPage
+                  handleUpdatePost={this.handleUpdatePost}
+                  location={location}
                   history={history}
                 />
               )}

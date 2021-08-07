@@ -21,9 +21,17 @@ async function deleteOne(req, res) {
   res.status(200).json(deletedPost);
 }
 
+async function update(req, res) {
+  const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+  res.status(200).json(updatedPost);
+}
+
 module.exports = {
   index,
   create,
   // show,
   delete: deleteOne,
+  update,
 };

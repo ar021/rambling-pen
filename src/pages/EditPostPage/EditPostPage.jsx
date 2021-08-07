@@ -1,22 +1,18 @@
 import React, { Component } from "react";
-import "./CreatePost.css";
+import { Link } from "react-router-dom";
+import "./EditPostPage.css";
 
-class CreatePost extends Component {
+class EditPostPage extends Component {
   state = {
-    invalidForm: true,
-    formData: {
-      tittle: "",
-      description: "",
-      image: "",
-      category: "",
-    },
+    invalidForm: false,
+    formData: this.props.location.state.post,
   };
 
   formRef = React.createRef();
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleAddPost(this.state.formData);
+    this.props.handleUpdatePost(this.state.formData);
     this.props.history.push("/");
   };
 
@@ -35,7 +31,7 @@ class CreatePost extends Component {
     return (
       <div className="createPostForm">
         <div className="formTittle">
-          <span>Write a Blog</span>
+          <span>Edit a Blog</span>
         </div>
         <img
           className="formImg"
@@ -95,13 +91,6 @@ class CreatePost extends Component {
               />
             </div>
           </div>
-          {/* <button
-            type="submit"
-            className="btn"
-            disabled={this.state.invalidForm}
-          >
-            Create Post
-          </button> */}
           <div className="frame">
             <button
               type="submit"
@@ -109,8 +98,14 @@ class CreatePost extends Component {
               disabled={this.state.invalidForm}
               class="custom-btn btn-16"
             >
-              Create
+              Update
             </button>
+            <Link className="cancelLink " to="/">
+              <button className="btn" class="custom-btn btn-16">
+                Cancel
+              </button>
+              {/* <i className="cancelLink far fa-window-close"></i> */}
+            </Link>
           </div>
         </form>
       </div>
@@ -118,4 +113,4 @@ class CreatePost extends Component {
   }
 }
 
-export default CreatePost;
+export default EditPostPage;

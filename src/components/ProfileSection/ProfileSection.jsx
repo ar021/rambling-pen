@@ -7,12 +7,15 @@ const ProfileSection = () => {
       <div className="profileSectionItem">
         <span className="profileSectionTittle">ABOUT ME</span>
         <img
-          src="https://neilpatel.com/wp-content/uploads/2017/09/become-better-blogger.jpg.webp"
+          src="https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2915&q=80"
           alt=""
         />
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-          quisquam ullam sit ea
+          Arya Stark is the third child of Eddard Stark and Catelyn Stark. After
+          narrowly escaping the persecution of House Stark by House Lannister,
+          Arya is trained as a Faceless Man at the House of Black and White in
+          Braavos, and uses her new skills to bring those who have wronged her
+          family to justice.
         </p>
       </div>
       {/* <div className="profileSectionItem">

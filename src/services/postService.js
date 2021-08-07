@@ -17,8 +17,17 @@ function deleteOne(id) {
   }).then((res) => res.json());
 }
 
+function update(post) {
+  return fetch(`${BASE_URL}/${post._id}`, {
+    method: "PUT",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(post),
+  }).then((res) => res.json());
+}
+
 export default {
   getAll,
   create,
   deleteOne,
+  update,
 };

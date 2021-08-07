@@ -17,11 +17,8 @@ const Post = ({ post, key }) => {
         alt=""
       />
       <div className="postInfo card-body">
-        <div className="postCats">
-          <span className="postCat">{post.category}</span>
-        </div>
+        <div className="postCat">{post.category}</div>
         <span className="postTitle">{post.tittle}</span>
-        <hr />
         <span className="postDate">1 hour ago</span>
       </div>
       <p className="postDesc">{post.description}</p>

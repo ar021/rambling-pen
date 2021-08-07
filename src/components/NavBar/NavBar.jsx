@@ -8,7 +8,7 @@ const NavBar = () => {
       <div className="navLeft">
         <img
           className="navImg"
-          src="https://cdn.shortpixel.ai/spai/w_746+q_lossy+ret_img+to_webp/https://everydayshessparkling.com/wp-content/uploads/2020/01/Best-Blogging-Tools-and-Resources-for-New-Bloggers.jpg"
+          src="https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2915&q=80"
           alt=""
         />
         <i cl className="navIcon fas fa-search"></i>

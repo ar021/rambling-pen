@@ -34,6 +34,7 @@ const ShowPost = ({ post, handleDeletePost, history }) => {
             </Link> */}
 
             <button
+              className="deleteButton"
               onClick={function () {
                 handleDeletePost(post._id);
                 history.push("/");
@@ -47,7 +48,7 @@ const ShowPost = ({ post, handleDeletePost, history }) => {
       </div>
       <div className="frame">
         <Link to="/">
-          <button class="custom-btn btn-16">RETURN</button>
+          <button class="custom-btn btn-16">Return</button>
         </Link>
       </div>
     </div>

@@ -16,8 +16,8 @@
 
 .showPostTitle {
   text-align: center;
-  margin: 10px;
-  font-size: 28px;
+  margin: 20px;
+  font-size: 35px;
   font-family: "Lora", sans-serif;
 }
 
@@ -25,11 +25,12 @@
   width: fit-content;
   display: flex;
   margin: 0 auto;
-  font-size: 20px;
+  margin-top: 20px;
 }
 .showPostCat {
   /* float: left; */
   margin-right: 20px;
+  font-size: 25px;
 }
 .showPostEdit > Button {
   background-color: white;
@@ -39,13 +40,14 @@
 .showPostIcon {
   margin-left: 15px;
   cursor: pointer;
+  font-size: 25px;
 }
 
 .showPostEdit > Link > .showPostIcon {
   color: rgb(9, 190, 130);
 }
 .showPostEdit > Button > .showPostIcon {
-  color: tomato;
+  color: rgb(255, 99, 71);
 }
 
 .showPostInfo {
