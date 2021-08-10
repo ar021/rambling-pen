@@ -7,6 +7,7 @@ import CreatePost from "./components/CreatePost/CreatePost";
 import HomePage from "./pages/HomePage/HomePage";
 import ShowPage from "./pages/ShowPage/ShowPage";
 import EditPostPage from "./pages/EditPostPage/EditPostPage";
+import SignupPage from "./pages/SignupPage/SignupPage";
 
 class App extends Component {
   constructor(props) {
@@ -94,6 +95,11 @@ class App extends Component {
                   history={history}
                 />
               )}
+            ></Route>
+            <Route
+              exact
+              path="/signup"
+              render={({ history }) => <SignupPage history={history} />}
             ></Route>
           </Switch>
         </Router>

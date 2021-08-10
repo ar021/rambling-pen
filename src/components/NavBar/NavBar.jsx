@@ -52,6 +52,11 @@ const NavBar = () => {
               LOGOUT
             </Link>
           </li>
+          <li className="navListItem">
+            <Link className="link" to="/signup">
+              SIGNUP
+            </Link>
+          </li>
         </div>
       </div>
     </div>

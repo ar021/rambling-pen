@@ -8,6 +8,7 @@ require("dotenv").config();
 require("./config/database");
 
 var postsRouter = require("./routes/api/posts");
+var usersRouter = require("./routes/api/users");
 
 var app = express();
 
@@ -18,6 +19,7 @@ app.use(express.static(path.join(__dirname, "build")));
 
 // api routes must be before the "catch all" route
 app.use("/api/posts", postsRouter);
+app.use("/api/users", usersRouter);
 
 // "catch all" route
 app.get("/*", function (req, res) {
