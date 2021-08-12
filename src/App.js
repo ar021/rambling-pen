@@ -9,6 +9,7 @@ import ShowPage from "./pages/ShowPage/ShowPage";
 import EditPostPage from "./pages/EditPostPage/EditPostPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import userService from "./services/userService";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 class App extends Component {
   constructor(props) {
@@ -54,8 +55,7 @@ class App extends Component {
     this.setState({ user: null });
   };
 
-  handleSignup = () => {
-    debugger;
+  handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
   };
 
@@ -114,7 +114,17 @@ class App extends Component {
               render={({ history }) => (
                 <SignupPage
                   history={history}
-                  handleSignup={this.handleSignup}
+                  handleSignupOrLogin={this.handleSignupOrLogin}
+                />
+              )}
+            ></Route>
+            <Route
+              exact
+              path="/login"
+              render={({ history }) => (
+                <LoginPage
+                  history={history}
+                  handleSignupOrLogin={this.handleSignupOrLogin}
                 />
               )}
             ></Route>
