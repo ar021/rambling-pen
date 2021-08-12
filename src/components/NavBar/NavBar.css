@@ -19,7 +19,8 @@
 
 .navIcon {
   font-size: 20px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
+  margin-left: 15px;
   color: #444;
   cursor: pointer;
 }

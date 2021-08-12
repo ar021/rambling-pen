@@ -8,6 +8,7 @@ class SignupForm extends Component {
     email: "",
     password: "",
     passwordConf: "",
+    image: "",
   };
 
   handleChange = (e) => {
@@ -21,6 +22,7 @@ class SignupForm extends Component {
     e.preventDefault();
     try {
       await userService.signup(this.state);
+      this.props.handleSignup();
       this.props.history.push("/");
     } catch (err) {
       this.props.updateMessage(err.message);
@@ -74,6 +76,15 @@ class SignupForm extends Component {
             placeholder="Confirm your password..."
             value={this.state.passwordConf}
             name="passwordConf"
+            onChange={this.handleChange}
+          />
+          <label>Profile Picture</label>
+          <input
+            className="signupInput"
+            type="text"
+            placeholder="Profile picture..."
+            value={this.state.image}
+            name="image"
             onChange={this.handleChange}
           />
           <div className="frame">
