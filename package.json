@@ -23,6 +23,7 @@
     "xcode": "^3.0.1"
   },
   "scripts": {
+    "express": "nodemon server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
