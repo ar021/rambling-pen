@@ -35,9 +35,6 @@
 
 ## Future Goals
 
-- Implementing User Model
-- Implementing Token-based Auth
 - Implementing search and short features
-- Deploying on Heroku
 - Polishing UI
 - Cleaning up the Code
