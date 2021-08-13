@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProfileSection.css";
 
-const ProfileSection = () => {
+const ProfileSection = ({ user }) => {
   return (
     <div className="profileSection">
       <div className="profileSectionItem">
@@ -10,6 +10,7 @@ const ProfileSection = () => {
           src="https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2915&q=80"
           alt=""
         />
+        <div className="userName">{user ? user.name : null}</div>
         <p>
           Arya Stark is the third child of Eddard Stark and Catelyn Stark. After
           narrowly escaping the persecution of House Stark by House Lannister,
@@ -31,8 +32,8 @@ const ProfileSection = () => {
         <div className="socialMedia">
           <i className="socialMediaIcon fab fa-facebook-square"></i>
           <i className="socialMediaIcon fab fa-instagram-square"></i>
-          <i className="socialMediaIcon fab fa-pinterest-square"></i>
           <i className="socialMediaIcon fab fa-twitter-square"></i>
+          <i className="socialMediaIcon fab fa-youtube-square"></i>
         </div>
       </div>
     </div>

@@ -17,24 +17,26 @@ const ShowPost = ({ post, handleDeletePost, history, user }) => {
         <h1 className="showPostTitle">{post.tittle}</h1>
         <div className="showPostInfo">
           <div className="showPostCat">{post.category}</div>
-          <div className="showPostEdit">
-            <Link to={{ pathname: "/edit", state: { post } }}>
-              <i className="showPostIcon far fa-edit"></i>
-            </Link>
-            <button
-              className="deleteButton"
-              onClick={function () {
-                handleDeletePost(post._id);
-                if (user) {
-                  history.push("/");
-                } else {
-                  history.push("/login");
-                }
-              }}
-            >
-              <i className="showPostIcon far fa-trash-alt"></i>
-            </button>
-          </div>
+          {user ? (
+            <div className="showPostEdit">
+              <Link to={{ pathname: "/edit", state: { post } }}>
+                <i className="showPostIcon far fa-edit"></i>
+              </Link>
+              <button
+                className="deleteButton"
+                onClick={function () {
+                  handleDeletePost(post._id);
+                  if (user) {
+                    history.push("/");
+                  } else {
+                    history.push("/login");
+                  }
+                }}
+              >
+                <i className="showPostIcon far fa-trash-alt"></i>
+              </button>
+            </div>
+          ) : null}
         </div>
         <p className="showPostDesc">{post.description}</p>
       </div>

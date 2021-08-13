@@ -80,7 +80,7 @@ class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <HomePage posts={posts} />}
+              render={() => <HomePage posts={posts} user={user} />}
             ></Route>
             <Route
               exact
