@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = ({ user, handleLogout }) => {
-  console.log(user);
   let leftNav = user ? (
     <li className="navListItem">
       <Link className="link" to="/" onClick={handleLogout}>

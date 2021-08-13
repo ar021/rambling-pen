@@ -2,7 +2,7 @@ import React from "react";
 import "./ShowPost.css";
 import { Link } from "react-router-dom";
 
-const ShowPost = ({ post, handleDeletePost, history }) => {
+const ShowPost = ({ post, handleDeletePost, history, user }) => {
   return (
     <div className="showPost">
       <div className="showPostWrapper">
@@ -21,23 +21,15 @@ const ShowPost = ({ post, handleDeletePost, history }) => {
             <Link to={{ pathname: "/edit", state: { post } }}>
               <i className="showPostIcon far fa-edit"></i>
             </Link>
-            {/* <Link
-              to={{
-                pathname: "/",
-                post: { post },
-                handleDeletePost: { handleDeletePost },
-              }}
-            >
-              <button onClick={() => handleDeletePost(post._id)}>
-                <i className="showPostIcon far fa-trash-alt"></i>
-              </button>
-            </Link> */}
-
             <button
               className="deleteButton"
               onClick={function () {
                 handleDeletePost(post._id);
-                history.push("/");
+                if (user) {
+                  history.push("/");
+                } else {
+                  history.push("/login");
+                }
               }}
             >
               <i className="showPostIcon far fa-trash-alt"></i>

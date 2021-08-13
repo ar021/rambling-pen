@@ -6,6 +6,7 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
+  console.log(`useradd${req.user}`);
   const post = await Post.create(req.body);
   res.status(200).json(post);
 }
@@ -17,11 +18,13 @@ async function create(req, res) {
 // }
 
 async function deleteOne(req, res) {
+  console.log(`userdele${req.user}`);
   const deletedPost = await Post.findByIdAndRemove(req.params.id);
   res.status(200).json(deletedPost);
 }
 
 async function update(req, res) {
+  console.log(`userUp${req.user}`);
   const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });

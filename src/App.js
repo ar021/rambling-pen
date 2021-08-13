@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import postService from "./services/postService";
 import NavBar from "./components/NavBar/NavBar";
 import CreatePost from "./components/CreatePost/CreatePost";
@@ -83,6 +88,7 @@ class App extends Component {
               render={(location) => (
                 <ShowPage
                   location={location}
+                  user={user}
                   handleDeletePost={this.handleDeletePost}
                 />
               )}
@@ -90,23 +96,31 @@ class App extends Component {
             <Route
               exact
               path="/add"
-              render={({ history }) => (
-                <CreatePost
-                  handleAddPost={this.handleAddPost}
-                  history={history}
-                />
-              )}
+              render={({ history }) =>
+                userService.getUser() ? (
+                  <CreatePost
+                    handleAddPost={this.handleAddPost}
+                    history={history}
+                  />
+                ) : (
+                  <Redirect to="/login" />
+                )
+              }
             ></Route>
             <Route
               exact
               path="/edit"
-              render={({ location, history }) => (
-                <EditPostPage
-                  handleUpdatePost={this.handleUpdatePost}
-                  location={location}
-                  history={history}
-                />
-              )}
+              render={({ location, history }) =>
+                userService.getUser() ? (
+                  <EditPostPage
+                    handleUpdatePost={this.handleUpdatePost}
+                    location={location}
+                    history={history}
+                  />
+                ) : (
+                  <Redirect to="/login" />
+                )
+              }
             ></Route>
             <Route
               exact

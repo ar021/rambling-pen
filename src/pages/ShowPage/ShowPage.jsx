@@ -10,6 +10,7 @@ export default function ShowPage(props) {
       <ShowPost
         key={post._id}
         post={post}
+        user={props.user}
         handleDeletePost={props.handleDeletePost}
         history={history}
       />
