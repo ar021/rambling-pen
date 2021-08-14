@@ -32,6 +32,10 @@
   margin-right: 20px;
   font-size: 25px;
 }
+.showPostDate {
+  margin: auto;
+  float: right;
+}
 .showPostEdit > Button {
   background-color: white;
   border: none;

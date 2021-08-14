@@ -19,7 +19,9 @@ const Post = ({ post, key }) => {
       <div className="postInfo card-body">
         <div className="postCat">{post.category}</div>
         <span className="postTitle">{post.tittle}</span>
-        <span className="postDate">{post.updatedAt}</span>
+        <span className="postDate">
+          {new Date(post.updatedAt).toDateString()}
+        </span>
       </div>
       <p className="postDesc">{post.description}</p>
       <div className="frame card-footer">

@@ -17,6 +17,9 @@ const ShowPost = ({ post, handleDeletePost, history, user }) => {
         <h1 className="showPostTitle">{post.tittle}</h1>
         <div className="showPostInfo">
           <div className="showPostCat">{post.category}</div>
+          <div className="showPostDate">
+            {new Date(post.updatedAt).toDateString()}
+          </div>
           {user ? (
             <div className="showPostEdit">
               <Link to={{ pathname: "/edit", state: { post } }}>
