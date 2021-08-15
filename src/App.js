@@ -97,10 +97,11 @@ class App extends Component {
               exact
               path="/add"
               render={({ history }) =>
-                userService.getUser() ? (
+                user ? (
                   <CreatePost
                     handleAddPost={this.handleAddPost}
                     history={history}
+                    user={user}
                   />
                 ) : (
                   <Redirect to="/login" />
@@ -111,11 +112,12 @@ class App extends Component {
               exact
               path="/edit"
               render={({ location, history }) =>
-                userService.getUser() ? (
+                user ? (
                   <EditPostPage
                     handleUpdatePost={this.handleUpdatePost}
                     location={location}
                     history={history}
+                    user={user}
                   />
                 ) : (
                   <Redirect to="/login" />
