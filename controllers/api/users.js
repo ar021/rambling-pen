@@ -13,11 +13,9 @@ async function signup(req, res) {
   try {
     await user.save();
     console.log(user);
-    // TODO: Send back a JWT instead of the user
     const token = createJWT(user);
     res.json({ token });
   } catch (err) {
-    // Probably a duplicate email
     res.status(400).json(err);
   }
 }

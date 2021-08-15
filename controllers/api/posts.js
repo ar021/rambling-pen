@@ -29,16 +29,24 @@ async function create(req, res) {
 
 async function deleteOne(req, res) {
   console.log(`userdele${req.user}`);
-  const updatedUser = await User.findByIdAndUpdate(
-    req.user._id,
-    {
-      $pull: { posts: post._id },
-    },
-    { new: true, useFindAndModify: false }
-  );
-  const deletedPost = await Post.findByIdAndRemove(req.params.id);
-  console.log(`newUserdel ${updatedUser}`);
-  res.status(200).json(deletedPost);
+  const user = await User.findById(req.user._id);
+  const postArry = user.posts;
+  const includes = postArry.includes(req.params.id);
+  console.log(includes);
+  if (includes) {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user._id,
+      {
+        $pull: { posts: post._id },
+      },
+      { new: true, useFindAndModify: false }
+    );
+    const deletedPost = await Post.findByIdAndRemove(req.params.id);
+    console.log(`newUserdel ${updatedUser}`);
+    res.status(200).json(deletedPost);
+  } else {
+    res.status(405).json("Not allowed");
+  }
 }
 
 async function update(req, res) {
@@ -46,13 +54,6 @@ async function update(req, res) {
   const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
-  // const updatedUser = await User.findByIdAndUpdate(
-  //   req.user._id,
-  //   {
-  //     $push: { posts: updatedPost._id },
-  //   },
-  //   { new: true, useFindAndModify: false }
-  // );
   console.log(`updatePost ${updatedPost}`);
   res.status(200).json(updatedPost);
 }

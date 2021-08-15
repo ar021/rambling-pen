@@ -38,13 +38,13 @@ class App extends Component {
 
   handleDeletePost = async (id) => {
     await postService.deleteOne(id);
-    this.setState(
-      (state) => ({
-        // Yay, filter returns a NEW array
+    const postArry = this.state.user.posts;
+    const includes = postArry.includes(id);
+    if (includes) {
+      this.setState((state) => ({
         posts: state.posts.filter((p) => p._id !== id),
-      })
-      // () => this.props.history.push("/")
-    );
+      }));
+    }
   };
 
   handleUpdatePost = async (updatedPostData) => {
