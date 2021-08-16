@@ -38,9 +38,14 @@ function login(creds) {
     .then(({ token }) => tokenService.setToken(token));
 }
 
+function getUpdatedUser(id) {
+  return fetch(`${BASE_URL}/${id}`).then((res) => res.json());
+}
+
 export default {
   signup,
   getUser,
   logout,
   login,
+  getUpdatedUser,
 };

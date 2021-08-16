@@ -18,6 +18,7 @@ async function create(req, res) {
     { new: true, useFindAndModify: false }
   );
   console.log(`newUseradd ${updatedUser} and newPost ${post}`);
+  console.log(post._creator);
   res.status(200).json(post);
 }
 
@@ -51,11 +52,18 @@ async function deleteOne(req, res) {
 
 async function update(req, res) {
   console.log(`userUp${req.user}`);
-  const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
-  console.log(`updatePost ${updatedPost}`);
-  res.status(200).json(updatedPost);
+  const user = await User.findById(req.user._id);
+  const postArry = user.posts;
+  const includes = postArry.includes(req.params.id);
+  if (includes) {
+    const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    console.log(`updatePost ${updatedPost}`);
+    res.status(200).json(updatedPost);
+  } else {
+    res.status(405).json("Not allowed");
+  }
 }
 
 module.exports = {

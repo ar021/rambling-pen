@@ -3,6 +3,12 @@ import "./ShowPost.css";
 import { Link } from "react-router-dom";
 
 const ShowPost = ({ post, handleDeletePost, history, user }) => {
+  let includes;
+  if (user) {
+    const postArry = user.posts;
+    includes = postArry.includes(post._id);
+    console.log(includes, user);
+  }
   return (
     <div className="showPost">
       <div className="showPostWrapper">
@@ -20,7 +26,7 @@ const ShowPost = ({ post, handleDeletePost, history, user }) => {
           <div className="showPostDate">
             {new Date(post.updatedAt).toDateString()}
           </div>
-          {user ? (
+          {includes ? (
             <div className="showPostEdit">
               <Link to={{ pathname: "/edit", state: { post } }}>
                 <i className="showPostIcon far fa-edit"></i>
@@ -29,11 +35,7 @@ const ShowPost = ({ post, handleDeletePost, history, user }) => {
                 className="deleteButton"
                 onClick={function () {
                   handleDeletePost(post._id);
-                  if (user) {
-                    history.push("/");
-                  } else {
-                    history.push("/login");
-                  }
+                  history.push("/");
                 }}
               >
                 <i className="showPostIcon far fa-trash-alt"></i>

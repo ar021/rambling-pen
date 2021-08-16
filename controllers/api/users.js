@@ -37,7 +37,17 @@ async function login(req, res) {
   }
 }
 
+async function update(req, res) {
+  try {
+    const user = await User.findById(req.params.id);
+    res.json(user);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
+
 module.exports = {
   signup,
   login,
+  update,
 };

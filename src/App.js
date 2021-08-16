@@ -27,9 +27,11 @@ class App extends Component {
 
   handleAddPost = async (newPostData) => {
     const newPost = await postService.create(newPostData);
+    const updatedUser = await userService.getUpdatedUser(this.state.user._id);
     this.setState(
       (state) => ({
         posts: [...state.posts, newPost],
+        user: updatedUser,
       })
       // Using cb to wait for state to update before rerouting
       // () => this.props.history.push("/")

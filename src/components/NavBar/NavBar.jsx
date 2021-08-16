@@ -38,7 +38,7 @@ const NavBar = ({ user, handleLogout }) => {
           src={
             user
               ? user.image
-              : "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2915&q=80"
+              : "https://devtalk.blender.org/uploads/default/original/2X/c/cbd0b1a6345a44b58dda0f6a355eb39ce4e8a56a.png"
           }
           alt=""
         />

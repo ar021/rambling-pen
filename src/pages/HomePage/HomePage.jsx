@@ -10,7 +10,7 @@ export default function HomePage({ posts, user }) {
       <TittleBar />
       <div className="displayPost">
         <Posts posts={posts} />
-        {user ? <ProfileSection user={user} /> : null}
+        {/* {user ? <ProfileSection user={user} /> : null} */}
       </div>
     </>
   );
